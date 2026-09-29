@@ -25,7 +25,7 @@ support.encryptor3("good nice wow !!!!!")
 support.encryptor3("1 0qqqqq qqqq - qq")
 support.encryptor3("holmes,. sherlock! io?#.baker$")
 fun HB-encryptor3(s :: String) -> String:
-  doc: "print the string you input "
+  doc: "change the . to !  "
   string-replace(s,".", "!")
 end
 support.test-encryptor3(HB-encryptor3)
@@ -103,6 +103,7 @@ support.encryptor9("1")
 support.encryptor9("2")
 support.encryptor9("a")
 fun HB-encryptor9(s :: String) -> Number:
+  doc: "showing the last letter's code point "
   s-after = string-substring(s, 0 , 1)
   string-to-code-point(s-after)
 end
@@ -113,20 +114,13 @@ support.encryptor10("123456789")
 support.encryptor10("abcd!!!")
 support.encryptor10("ABCD OOOPPP")
 support.encryptor10("ooop")
+support.encryptor10("bRcHf")
 
 fun HB-encryptor10(s :: String) -> String:
-  s1 = string-replace(s, "A", "B")
-  s2 = string-replace(s1, "E", "F")
-  s3 = string-replace(s2, "I", "J")
-  s4 = string-replace(s3, "O", "P")
-  s5 = string-replace(s4, "U", "V")
-  s6 = string-replace(s5, "a", "b")
-  s7 = string-replace(s6, "e", "f")
-  s8 = string-replace(s7, "i", "j")
-  s9 = string-replace(s8, "o", "p")
-  s10 = string-replace(s9, "u", "v")
-  s-step = string-substring(s10, 0, 4)
-  string-repeat(s-step, 5)
+  doc: "first making all letter to lower case and delete the r and convert certain letter in HB-encryptor5 and print the first 4 letter for 5 times" 
+  s-first = HB-encryptor6(s)
+  s-after = HB-encryptor5(s-first)
+  HB-encryptor4(s-after)
 end
 HB-encryptor10("ooop")
 support.test-encryptor10(HB-encryptor10)
