@@ -1,4 +1,4 @@
-use context starter2024
+use context dcic2024
 fun is-leap-year(year :: Number) -> Boolean:
   doc: "When you input a year, returns true if it is a leap year, otherwise false."
   if (num-remainder(year, 4) == 0) and (num-remainder(year, 100) <> 0):
@@ -51,8 +51,9 @@ where:
    
 
 end
+#Problem 4
 
-planet = table: Planet , Distance
+planets = table: Planet , Distance
   row:"Mercury",	0.39
   row:"Venus",	0.72
   row:"Earth",	1
@@ -62,5 +63,29 @@ planet = table: Planet , Distance
   row:"Uranus",	 19.2
   row:"Neptune", 	30.06
 end
+mars = planets.row-n(3)
 
-  
+mars["Distance"]
+
+
+#Problem 5
+include csv
+include data-source
+include statistics
+
+something = load-table: 
+  year :: Number,
+  day :: Number,
+  month :: String,
+  rate :: numbe
+  source: csv-table-file("boe_rates.csv", default-options)
+  sanitize year using num-sanitizer
+  sanitize day using num-sanitizer
+  sanitize rate using num-sanitizer
+end
+
+something.length()
+median(something.get-column("rate"))
+modes(something.get-column("rate"))
+# I do not know what is the problem about the include. It shows error on line 72 
+
